@@ -34,14 +34,24 @@ public class ScheduledGoal extends Goal {
 	public void start() {
 		if(!this.running) {
 			this.running = true;
-			this.goal.start();
+			if(this.goal instanceof RandomGoal) {
+				((RandomGoal)this.goal).generateRandomized();
+				this.goal.start();
+			} else {
+				this.goal.start();
+			}
 		}
 	}
 
 	public void stop() {
 		if (this.running) {
 			this.running = false;
-			this.goal.stop();
+			if(this.goal instanceof RandomGoal) {
+				((RandomGoal)this.goal).resetRandomized();
+				this.goal.stop();
+			} else {
+				this.goal.stop();
+			}
 		}
 	}
 
