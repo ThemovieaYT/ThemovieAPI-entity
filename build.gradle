@@ -26,6 +26,9 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	
+	modApi "com.github.ThemovieaYT:ThemovieAPI-base:74981aebe0"
+	include "com.github.ThemovieaYT:ThemovieAPI-base:74981aebe0"
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
@@ -67,7 +70,12 @@ jar {
 		rename { "${it}_${project.archivesBaseName}"}
 	}
 }
-
+repositories {
+	maven {
+		name = "JitPack" 
+		url 'https://jitpack.io' 
+	}
+}
 // configure the maven publication
 publishing {
 	publications {

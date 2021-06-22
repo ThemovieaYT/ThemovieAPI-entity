@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "themovieapienergy",
+  "id": "themovieapientity",
   "version": "${version}",
 
-  "name": "ThemovieAPI Energy",
+  "name": "ThemovieAPI Entity",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
     "Me!"
@@ -19,11 +19,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.themovieapi.themovieapi_energy.ThemovieAPIEnergy"
+      "net.themovieapi.themovieapi_entity.ThemovieAPIEntity"
     ]
   },
   "mixins": [
-    "themovieapienergy.mixins.json"
+    "themovieapientity.mixins.json"
   ],
 
   "depends": {
