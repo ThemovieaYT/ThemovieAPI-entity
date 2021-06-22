@@ -21,6 +21,14 @@ public class RandomGoal extends Goal {
 		this.tickDuration = tickDuration;
 	}
 	
+	public List<Goal> getRandomizedGoalList() {
+		return this.randomizedGoalList;
+	}
+	
+	public List<Goal> getGoalList() {
+		return this.goalList;
+	}
+	
 	public void generateRandomized() {
 		int i = 0;
 		for(int x = 0; x < this.goalList.size(); x++) {
