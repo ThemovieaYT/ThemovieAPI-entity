@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.themovieapi.themovieapi_entity.ThemovieAPIEntity"
+      "net.themoviea.themovieapi_entity.ThemovieAPIEntity"
     ]
   },
   "mixins": [
