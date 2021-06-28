@@ -12,8 +12,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class SimpleBrain {
-	public List<BlockPos> POIBlockPosList = new ArrayList<BlockPos>();
-	private Map<BlockPos, BlockState> pointOfInterest = Maps.newHashMap();
+	private List<BlockPos> POIBlockPosList = new ArrayList<BlockPos>();
+	public List<BlockState> POIBlockStateList = new ArrayList<BlockState>();
+	public Map<BlockState, BlockPos> pointOfInterest = Maps.newHashMap();
 	private LivingEntity entity;
 	
 	public SimpleBrain(LivingEntity entity) {
@@ -38,13 +39,14 @@ public class SimpleBrain {
 				for(int y = this.getEntityPos("y") - yRange; y <= this.getEntityPos("y") + yRange; y++) {
 					if(world.getBlockState(new BlockPos(x, y, z)) == state) {
 						this.POIBlockPosList.add(new BlockPos(x, y, z));
+						this.POIBlockStateList.add(state);
 					}
 				}
 			}
 		}
 		
 		for(int i = 0; i < this.POIBlockPosList.size(); i++) {
-			this.pointOfInterest.put(this.POIBlockPosList.get(i), state);
+			this.pointOfInterest.put(this.POIBlockStateList.get(i), this.POIBlockPosList.get(i));
 		}
 	}
 }

@@ -10,6 +10,7 @@ import net.minecraft.entity.ai.goal.FollowTargetGoal;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.util.profiler.Profiler;
 import net.minecraft.world.World;
+import net.themoviea.themovieapi_entity.entity.ai.goals.RandomGoal;
 import net.themoviea.themovieapi_entity.entity.ai.goals.ScheduledGoal;
 import net.themoviea.themovieapi_entity.entity.ai.goals.ShouldRunOneTimeGoal;
 import net.themoviea.themovieapi_entity.entity.ai.goals.TaskOnceGoal;
