@@ -1,6 +1,7 @@
 package net.themoviea.themovieapi_entity.entity.ai;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,11 @@ import com.google.common.collect.Maps;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtHelper;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -47,6 +53,32 @@ public class SimpleBrain {
 		
 		for(int i = 0; i < this.POIBlockPosList.size(); i++) {
 			this.pointOfInterest.put(this.POIBlockStateList.get(i), this.POIBlockPosList.get(i));
+		}
+	}
+	
+	public CompoundTag toTag(CompoundTag tag) {
+		ListTag listTag = new ListTag();
+		CompoundTag compoundTag;
+		for(int i = 0; i < this.pointOfInterest.size(); i++) {
+			compoundTag = new CompoundTag();
+			compoundTag.put("Poiblockstate", NbtHelper.fromBlockState(this.POIBlockStateList.get(i)));
+			compoundTag.put("Poiblockpos", NbtHelper.fromBlockPos(this.POIBlockPosList.get(i)));
+			listTag.add(compoundTag);
+		}
+		tag.put("Pointofinterest", listTag);
+		return tag;
+	}
+	
+	public void fromTag(CompoundTag tag) {
+		if(tag.contains("Pointofinterest")) {
+			CompoundTag compoundTag = tag.getCompound("Pointofinterest");
+			ListTag blockStateListTag = compoundTag.getList("Poiblockstate", 10);
+			ListTag blockPosListTag = compoundTag.getList("Poiblockpos", 10);
+			for(int i = 0; i < blockStateListTag.size(); i++) {
+				CompoundTag compoundBlockState = blockStateListTag.getCompound(i);
+				CompoundTag compoundTagBlockPos = blockPosListTag.getCompound(i);
+				this.pointOfInterest.put(NbtHelper.toBlockState(compoundBlockState), NbtHelper.toBlockPos(compoundTagBlockPos));
+			}
 		}
 	}
 }
