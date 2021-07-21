@@ -19,11 +19,15 @@ public class GoToPOIGoal extends Goal {
 	public boolean canStart() {
 		SimpleBrain brain = entity.getSimpleBrain();
 		if(brain != null) {
-			if(brain.pointOfInterest.get(brain.POIBlockStateList.get(0)) != null) {
-				return true;
+			if(brain.POIBlockStateList.get(0) != null) {
+				if(brain.POIBlockStateList.get(0) == this.entity.world.getBlockState(brain.pointOfInterest.get(brain.POIBlockStateList.get(0)))) {
+					return true;
+				} else {
+					brain.pointOfInterest.remove(brain.POIBlockStateList.get(0));
+					brain.POIBlockStateList.remove(0);
+					return false;
+				}
 			} else {
-				brain.pointOfInterest.remove(brain.POIBlockStateList.get(0));
-				brain.POIBlockStateList.remove(0);
 				return false;
 			}
 		} else {
