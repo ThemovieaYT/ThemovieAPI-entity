@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.5-SNAPSHOT'
+	id 'fabric-loom' version '0.7-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -27,8 +27,8 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
-	modApi "com.github.ThemovieaYT:ThemovieAPI-base:74981aebe0"
-	include "com.github.ThemovieaYT:ThemovieAPI-base:74981aebe0"
+	modApi "com.github.ThemovieaYT:ThemovieAPI-base:4af165c981"
+	include "com.github.ThemovieaYT:ThemovieAPI-base:4af165c981"
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
