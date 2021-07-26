@@ -35,5 +35,6 @@ public class SimpleBrainEntity extends PathAwareEntity {
 		if(this != null) {
 			this.customGoalSelector.tick(this.world);
 		}
+		super.tickMovement();
 	}
 }

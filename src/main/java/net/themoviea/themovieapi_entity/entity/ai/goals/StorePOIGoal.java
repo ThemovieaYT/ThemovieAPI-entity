@@ -18,7 +18,7 @@ public class StorePOIGoal extends Goal {
 	public boolean canStart() {
 		SimpleBrain brain = entity.getSimpleBrain();
 		if(brain != null) {
-			if(brain.pointOfInterest == null) {
+			if(brain.pointOfInterest != null) {
 				return true;
 			} else {
 				return false;

@@ -20,7 +20,10 @@
   "entrypoints": {
     "main": [
       "net.themoviea.themovieapi_entity.ThemovieAPIEntity"
-    ]
+    ],
+   	"client": [
+      "net.themoviea.themovieapi_entity.ThemovieAPIEntityClient"
+   	]
   },
   "mixins": [
     "themovieapientity.mixins.json"
